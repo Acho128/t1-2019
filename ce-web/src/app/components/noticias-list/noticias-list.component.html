@@ -1,3 +1,34 @@
-<p>
-  noticias-list works!
-</p>
+<!-- <carousel>
+    <slide>
+        <img src="../../../assets/imagenes/DSC1.JPG" style="display: block; width: 100%;">
+        <div class="carousel-caption d-none d-md-block">
+            <h3>First slide label 1</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+    </slide>
+    <slide>
+        <img src="../../../assets/imagenes/DSC2.JPG" style="display: block; width: 100%;">
+    </slide>
+    <slide>
+        <img src="../../../assets/imagenes/DSC3.JPG" style="display: block; width: 100%;">
+        <div class="carousel-caption d-none d-md-block">
+            <h3>First slide label 3</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
+    </slide>
+    <slide>
+        <img src="../../../assets/imagenes/DSC4.JPG" style="display: block; width: 100%;">
+    </slide>
+</carousel> -->
+<carousel>
+    <slide *ngFor="let noticia of noticias; let i = index">
+        <img src="../../../assets/imagenes/DSC1.JPG" style="display: block; width: 100%;" />
+        <!-- <img [src]="{{ noticia.Imagen }}" alt="image slide" style="display: block; width: 100%;" /> -->
+        <!-- <img src="../../../assets/imagenes/DSC1.JPG" style="display: block; width: 100%;" /> -->
+        <!-- <img ng-src="../../../assets/imagenes/{{ noticia.Imagen }}" style="display: block; width: 100%;" /> -->
+        <div class="carousel-caption d-none d-md-block">
+            <h3>{{ noticia.Titulo }}</h3>
+            <p>{{ noticia.Descripcion }}</p>
+        </div>
+    </slide>
+</carousel>

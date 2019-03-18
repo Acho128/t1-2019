@@ -5,6 +5,6 @@ export class Noticia {
   Descripcion: String;
   /*fechaCreacion: Datetime;
   ultimaModificacion: Datetime;*/
-  fechaCreacion: Number;
-  ultimaModificacion: Number;
+  fechaCreacion: String;
+  ultimaModificacion: String;
 }

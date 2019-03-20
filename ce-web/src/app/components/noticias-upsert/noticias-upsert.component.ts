@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-
+import { ActivatedRoute } from "@angular/router";
+import { DataStorageService } from "../../services/dataStorage/data-storage.service";
 @Component({
   selector: "app-noticias-upsert",
   templateUrl: "./noticias-upsert.component.html",
@@ -9,11 +10,16 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class NoticiasUpsertComponent implements OnInit {
   public formGroup: FormGroup;
   formBuilder: FormBuilder;
-  noticiaId: Number;
-  constructor() {
+  noticiaId: number;
+  constructor(
+    private route: ActivatedRoute,
+    private dataStorageService: DataStorageService
+  ) {
     this.formBuilder = new FormBuilder();
+    //+ = convierte todo a enteros
+    this.noticiaId = +this.route.snapshot.params["id"];
     this.iniciarNoticia();
-    //this.noticiaId=this.route.sn
+    this.cargarNoticia(this.noticiaId);
   }
 
   ngOnInit() {}
@@ -29,7 +35,46 @@ export class NoticiasUpsertComponent implements OnInit {
     });
   };
 
+  cargarNoticia = (id: number) => {
+    const listaNoticias = this.dataStorageService.getObjectValue("noticias");
+    listaNoticias.forEach(noticia => {
+      if (noticia.id == id) {
+        this.formGroup = this.formBuilder.group({
+          id: [id, [Validators.required]],
+          titulo: [noticia.titulo, [Validators.required]],
+          imagen: [noticia.imagen, [Validators.required]],
+          descripcion: [
+            noticia.descripcion,
+            [Validators.required, Validators.minLength(15)]
+          ],
+          fechaCreacion: [noticia.fechaCreacion],
+          ultimaModificacion: [noticia.ultimaModificacion]
+        });
+      }
+    });
+  };
+
   guardarData(_formGroup: FormGroup) {
     console.log(_formGroup);
+    if (this.formGroup.valid) {
+      let noticiaIndex = -1;
+      const listaNoticias = this.dataStorageService.getObjectValue("noticias");
+      listaNoticias.forEach((noticia, index) => {
+        if (noticia.id == this.formGroup.value.id) {
+          noticiaIndex = index;
+        }
+      });
+      if (noticiaIndex >= 0) {
+        listaNoticias[noticiaIndex] = this.formGroup.value;
+      } else {
+        this.formGroup.value.id = listaNoticias.length;
+        listaNoticias.push(this.formGroup.value);
+      }
+      this.formGroup.patchValue({ ultimaModificacion: new Date() });
+      this.dataStorageService.setObjectValue("noticias", listaNoticias);
+      alert("Informacion guardada");
+    } else {
+      alert("Debe completar la informacion correctamente");
+    }
   }
 }

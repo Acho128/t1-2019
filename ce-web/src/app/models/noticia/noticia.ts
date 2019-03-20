@@ -1,8 +1,8 @@
 export class Noticia {
-  Id: Number;
-  Titulo: String;
-  Imagen: String;
-  Descripcion: String;
+  id: Number;
+  titulo: String;
+  imagen: String;
+  descripcion: String;
   /*fechaCreacion: Datetime;
   ultimaModificacion: Datetime;*/
   fechaCreacion: String;

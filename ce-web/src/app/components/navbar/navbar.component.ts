@@ -8,45 +8,45 @@ import { DataStorageService } from "../../services/dataStorage/data-storage.serv
 export class NavbarComponent implements OnInit {
   private jsonNoticias: any = [
     {
-      Id: 0,
-      Titulo: "Noticia 1",
+      id: 0,
+      titulo: "Noticia 1",
       //Imagen: "DSC1.jpg",
-      Imagen: "../../../assets/imagenes/DSC1.JPG",
-      Descripcion: "Descripcion noticia 1",
+      imagen: "../../../assets/imagenes/DSC1.JPG",
+      descripcion: "Descripcion noticia 1",
       fechaCreacion: "18-03-2019",
       ultimaModificacion: "18-03-2019"
     },
     {
-      Id: 1,
-      Titulo: "Noticia 2",
+      id: 1,
+      titulo: "Noticia 2",
       //Imagen: "DSC2.jpg",
-      Imagen: "../../../assets/imagenes/DSC2.JPG",
-      Descripcion: "Descripcion noticia 2",
+      imagen: "../../../assets/imagenes/DSC2.JPG",
+      descripcion: "Descripcion noticia 2",
       fechaCreacion: "19-03-2019",
       ultimaModificacion: "19-03-2019"
     },
     {
-      Id: 2,
-      Titulo: "Noticia 3",
+      id: 2,
+      titulo: "Noticia 3",
       //Imagen: "DSC3.jpg",
-      Imagen: "../../../assets/imagenes/DSC3.JPG",
-      Descripcion: "Descripcion noticia 3",
+      imagen: "../../../assets/imagenes/DSC3.JPG",
+      descripcion: "Descripcion noticia 3",
       fechaCreacion: "20-03-2019",
       ultimaModificacion: "20-03-2019"
     },
     {
-      Id: 3,
-      Titulo: "Noticia 4",
+      id: 3,
+      titulo: "Noticia 4",
       //Imagen: "DSC4.jpg",
-      Imagen: "../../../assets/imagenes/DSC4.JPG",
-      Descripcion: "Descripcion noticia 4",
+      imagen: "../../../assets/imagenes/DSC4.JPG",
+      descripcion: "Descripcion noticia 4",
       fechaCreacion: "21-03-2019",
       ultimaModificacion: "21-03-2019"
     }
   ];
 
   constructor(private DataStorageService: DataStorageService) {
-    DataStorageService.setObjectValue("noticias", this.jsonNoticias);
+    ///DataStorageService.setObjectValue("noticias", this.jsonNoticias);
   }
 
   ngOnInit() {}

@@ -27,26 +27,26 @@ export class NavbarComponent implements OnInit {
     },
     {
       Id: 2,
-      Titulo: "Noticia 2",
+      Titulo: "Noticia 3",
       //Imagen: "DSC3.jpg",
       Imagen: "../../../assets/imagenes/DSC3.JPG",
-      Descripcion: "Descripcion noticia 2",
+      Descripcion: "Descripcion noticia 3",
       fechaCreacion: "20-03-2019",
       ultimaModificacion: "20-03-2019"
     },
     {
       Id: 3,
-      Titulo: "Noticia 3",
+      Titulo: "Noticia 4",
       //Imagen: "DSC4.jpg",
       Imagen: "../../../assets/imagenes/DSC4.JPG",
-      Descripcion: "Descripcion noticia 3",
+      Descripcion: "Descripcion noticia 4",
       fechaCreacion: "21-03-2019",
       ultimaModificacion: "21-03-2019"
     }
   ];
 
   constructor(private DataStorageService: DataStorageService) {
-    //DataStorageService.setObjectValue("noticias", this.jsonNoticias);
+    DataStorageService.setObjectValue("noticias", this.jsonNoticias);
   }
 
   ngOnInit() {}

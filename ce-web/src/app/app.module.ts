@@ -11,18 +11,22 @@ import { environment } from "../environments/environment";
 import { NoticiasListComponent } from "./components/noticias-list/noticias-list.component";
 import { CarouselModule } from "ngx-bootstrap/carousel";
 import { AngularFontAwesomeModule } from "node_modules/angular-font-awesome";
+import { NoticiasUpsertComponent } from "./components/noticias-upsert/noticias-upsert.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    NoticiasListComponent
+    NoticiasListComponent,
+    NoticiasUpsertComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
+    ReactiveFormsModule,
     CarouselModule.forRoot(),
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production

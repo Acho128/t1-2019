@@ -20,6 +20,7 @@
         <img src="../../../assets/imagenes/DSC4.JPG" style="display: block; width: 100%;">
     </slide>
 </carousel> -->
+
 <carousel>
     <slide *ngFor="let noticia of noticias; let i = index">
         <img src="../../../assets/imagenes/DSC1.JPG" style="display: block; width: 100%;" />
@@ -27,8 +28,15 @@
         <!-- <img src="../../../assets/imagenes/DSC1.JPG" style="display: block; width: 100%;" /> -->
         <!-- <img ng-src="../../../assets/imagenes/{{ noticia.Imagen }}" style="display: block; width: 100%;" /> -->
         <div class="carousel-caption d-none d-md-block">
+            <button type="button" class="btn btn-dark">
+                <fa name="edit">Editar</fa>
+                <!-- <a [routerLink]="[ 'noticias/list', {{noticias.Id}} ]">Editar</a> -->
+                <a [routerLink]="['/noticias-edit/',noticia.Id]">Editar</a>
+            </button>
             <h3>{{ noticia.Titulo }}</h3>
             <p>{{ noticia.Descripcion }}</p>
+
         </div>
+        <!-- <button type="button" class="btn btn-outline-dark">Dark</button> -->
     </slide>
 </carousel>

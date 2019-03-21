@@ -82,3 +82,22 @@
     <th>{{ moneda }}</th>
     <td>{{ moneda | currency:'USD':false }}</td>
 </tr>
+
+<h2>Pipes Avanzados</h2>
+<tr>
+    <th colspan="2" class="text-center">Array Json</th>
+</tr>
+<tr>
+    <pre>{{noticias|json}}</pre>
+</tr>
+
+<h2>Pipes Avanzados JSON ASYNC</h2>
+<tr>
+    <th colspan="2" class="text-center">Array Json| ASYNC</th>
+</tr>
+<tr>
+    <!--  <pre>{{noticias$|json|async}}</pre> -->
+</tr>
+
+<h1>Youtube Video Incrustado</h1>
+<iframe width="560" height="315" [src]="urlYoutube | domSecurity" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

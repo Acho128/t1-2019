@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Noticia } from "src/app/models/noticia/noticia";
 
 @Injectable({
   providedIn: "root"
@@ -32,5 +34,13 @@ export class DataStorageService {
         "No se puede obtener la información, porque no está habilitado el localStorage"
       );
     }
+  };
+
+  getNoticiasAsync = (): Observable<Noticia[]> => {
+    return new Observable(observer => {
+      setTimeout(() => {
+        observer.next(this.getObjectValue("noticias"));
+      }, 3000);
+    });
   };
 }

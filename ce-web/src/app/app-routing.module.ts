@@ -6,10 +6,12 @@ import { LoginComponent } from "../app/components/login/login.component";
 import { PrivateComponent } from "../app/components/private/private.component";
 import { AcercaDeComponent } from "../app/components/acerca-de/acerca-de.component";
 import { AuthGuard } from "./guards/auth.guard";
+import { PipesComponent } from "../app/components/pipes/pipes.component";
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "acerca-de", component: AcercaDeComponent },
+  { path: "pipe", component: PipesComponent },
   {
     path: "private",
     component: PrivateComponent,

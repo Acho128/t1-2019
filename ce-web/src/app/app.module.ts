@@ -17,6 +17,7 @@ import { PrivateComponent } from "./components/private/private.component";
 import { LoginComponent } from "./components/login/login.component";
 import { AcercaDeComponent } from "./components/acerca-de/acerca-de.component";
 import { AuthGuard } from "../app/guards/auth.guard";
+import { PipesComponent } from './components/pipes/pipes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { AuthGuard } from "../app/guards/auth.guard";
     NoticiasUpsertComponent,
     PrivateComponent,
     LoginComponent,
-    AcercaDeComponent
+    AcercaDeComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,

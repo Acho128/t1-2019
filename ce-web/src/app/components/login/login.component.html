@@ -1,3 +1,40 @@
-<p>
-  login works!
-</p>
+<div class="sidenav">
+    <div class="login-main-text">
+        <h2>Application<br> Login Page</h2>
+        <p>SCE WEB Ingrese para accesar.</p>
+    </div>
+</div>
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+            <form [formGroup]="formGroup" id="formGroup">
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input formControlName="username" id="username" type="text" class="form-control" placeholder="User Name">
+                    <div *ngIf="formGroup.controls['username'].dirty">
+                        <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['username'].errors?.required">
+                            El usuario es requerido.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input formControlName="password" id="password" type="password" class="form-control" placeholder="Password">
+                    <div *ngIf="formGroup.controls['password'].dirty">
+                        <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['password'].errors?.required">
+                            La contraseña es requerida.
+                        </div>
+                        <div class="form-control-feedback text-danger" *ngIf="formGroup.controls['password'].errors?.minlength">
+                            La descripción debe ser de al menos 4 caracteres
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-black" (click)="iniciarSesion()" [ngClass]="{'disabled':!formGroup.valid}">Login</button>
+                <button type="submit" class="btn btn-secondary">Register</button>
+                <button type="submit" class="btn btn-secondary" (click)="iniciarSesionFace()">
+                  <fa name="facebook-square"></fa>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

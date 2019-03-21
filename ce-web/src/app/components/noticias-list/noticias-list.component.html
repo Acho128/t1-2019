@@ -1,19 +1,21 @@
-<carousel>
-    <slide *ngFor="let noticia of noticias; let i = index">
-        <img src="../../../assets/imagenes/DSC1.JPG" style="display: block; width: 100%;" />
-        <!-- <img [src]="{{ noticia.Imagen }}" alt="image slide" style="display: block; width: 100%;" /> -->
-        <!-- <img src="../../../assets/imagenes/DSC1.JPG" style="display: block; width: 100%;" /> -->
-        <!-- <img ng-src="../../../assets/imagenes/{{ noticia.Imagen }}" style="display: block; width: 100%;" /> -->
-        <div class="carousel-caption d-none d-md-block">
-            <button type="button" class="btn btn-dark">
-                <fa name="edit">Editar</fa>
-                <!-- <a [routerLink]="[ 'noticias/list', {{noticias.Id}} ]">Editar</a> -->
-                <a [routerLink]="['/noticias-edit/',noticia.id]">Editar</a>
-            </button>
-            <h3>{{ noticia.titulo }}</h3>
-            <p>{{ noticia.descripcion }}</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-principal">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        </div>
-        <!-- <button type="button" class="btn btn-outline-dark">Dark</button> -->
-    </slide>
-</carousel>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="['/private/noticias/list']">Noticias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/private','noticias-insert']">Insertar Noticia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['acerca-de']">Acerca De</a>
+            </li>
+        </ul>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="LogOut()">Cerrar Session</button>
+    </div>
+</nav>

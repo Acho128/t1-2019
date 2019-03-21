@@ -23,7 +23,9 @@ export class DataStorageService {
       if (DATA) {
         return DATA;
       } else {
-        throw new Error("No se encontró el valor ${key} en el localStorage");
+        this.setObjectValue(key, null);
+        return null;
+        //throw new Error("No se encontró el valor ${key} en el localStorage");
       }
     } else {
       throw new Error(

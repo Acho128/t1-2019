@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataStorageService } from "../../services/dataStorage/data-storage.service";
+import { LoginService } from "../../services/login/login.service";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
@@ -45,9 +47,18 @@ export class NavbarComponent implements OnInit {
     }
   ];
 
-  constructor(private DataStorageService: DataStorageService) {
+  constructor(
+    private DataStorageService: DataStorageService,
+    private _LoginService: LoginService,
+    private _router: Router
+  ) {
     ///DataStorageService.setObjectValue("noticias", this.jsonNoticias);
   }
 
   ngOnInit() {}
+
+  LogOut() {
+    this._LoginService.logOut();
+    //this._router.navigate(["login"]);
+  }
 }

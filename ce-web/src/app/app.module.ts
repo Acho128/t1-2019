@@ -13,10 +13,10 @@ import { CarouselModule } from "ngx-bootstrap/carousel";
 import { AngularFontAwesomeModule } from "node_modules/angular-font-awesome";
 import { NoticiasUpsertComponent } from "./components/noticias-upsert/noticias-upsert.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { PrivateComponent } from './components/private/private.component';
-import { LoginComponent } from './components/login/login.component';
-import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
-
+import { PrivateComponent } from "./components/private/private.component";
+import { LoginComponent } from "./components/login/login.component";
+import { AcercaDeComponent } from "./components/acerca-de/acerca-de.component";
+import { AuthGuard } from "../app/guards/auth.guard";
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,7 @@ import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
       enabled: environment.production
     })
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

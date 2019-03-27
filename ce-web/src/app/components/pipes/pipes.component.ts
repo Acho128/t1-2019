@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataStorageService } from "src/app/services/dataStorage/data-storage.service";
 import { Observable } from "rxjs";
+import { Noticia } from "src/app/models/noticia/noticia";
 
 @Component({
   selector: "app-pipes",
@@ -17,11 +18,11 @@ export class PipesComponent implements OnInit {
   fechaActual = new Date();
   moneda: number = 1800.69;
   noticias: JSON;
-  noticias$: any;
+  noticias$: Observable<Noticia[]>;
   urlYoutube: string = " https://www.youtube.com/embed/EtQMBrerfz4";
   constructor(private _datalocalStorage: DataStorageService) {
     this.noticias = _datalocalStorage.getObjectValue("noticias");
-    //this.noticias$ = _datalocalStorage.getNoticiasAsync();
+    this.noticias$ = _datalocalStorage.getNoticiasAsync();
   }
 
   ngOnInit() {}

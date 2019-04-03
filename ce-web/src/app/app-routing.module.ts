@@ -7,11 +7,13 @@ import { PrivateComponent } from "../app/components/private/private.component";
 import { AcercaDeComponent } from "../app/components/acerca-de/acerca-de.component";
 import { AuthGuard } from "./guards/auth.guard";
 import { PipesComponent } from "../app/components/pipes/pipes.component";
+import { HorariosListComponent } from './extra/horarios-list/horarios-list.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "acerca-de", component: AcercaDeComponent },
   { path: "pipe", component: PipesComponent },
+  { path: "horarios-list", component: HorariosListComponent },
   {
     path: "private",
     component: PrivateComponent,
